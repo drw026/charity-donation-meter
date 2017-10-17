@@ -9,7 +9,6 @@ html, body {
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.7);
-    display: table;
     height: 100%;
     position: relative;
     width: 100%;
@@ -24,5 +23,13 @@ html, body {
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
+    }
+}
+
+.settings {
+    display: none;
+
+    &--show {
+        display: table;
     }
 }
