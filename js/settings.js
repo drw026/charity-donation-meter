@@ -1,4 +1,5 @@
 import $ from 'jquery';
+const eev = new (require('eev'))();
 
 // cache overlay
 const $settings = $('[data-js="settings"]');
@@ -23,14 +24,11 @@ function initialize() {
     // check if identifier is set
     if (!localStorageIdentifier) {
 
-        // if not set, initialize setup
-        settings({setup: true});
+        eev.emit('settings', { action: 'open' });
 
         return;
 
     }
-
-    console.log('APP ALREADY INITIALIZED');
 
 }
 
@@ -39,19 +37,19 @@ function initialize() {
  * @function settings
  * @param setup
  */
-function settings(setup) {
+function settings(data) {
 
-    if (setup) {
+    console.log(localStorageIdentifier);
+
+    if (data.action === 'open') {
 
         $settings.removeClass('settings').addClass('settings--show');
 
+    } else if (data.action === 'close') {
+
+        $settings.removeClass('settings--show').addClass('settings');
+
     }
-
-}
-
-function closeSettings() {
-
-    $settings.removeClass('settings--show').addClass('settings');
 
 }
 
@@ -66,4 +64,7 @@ $buttonTarget.on('click', function saveAmountTarget() {
 
 });
 
-export { initialize };
+// create event handler
+eev.on('settings', settings);
+
+export default initialize();
