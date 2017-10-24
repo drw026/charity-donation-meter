@@ -12,6 +12,7 @@ html, body {
     height: 100%;
     position: relative;
     width: 100%;
+    z-index: 10;
 
     &__inner {
         display: table-cell;
