@@ -40,20 +40,22 @@ function calculate() {
 
 function actionAdd(amount) {
 
+    // get actions from localStorage
+    // create empty array if no actions are set in localStorage
     const actions = JSON.parse(localStorage.getItem('actions')) || [];
 
+    // add new action
     actions.push(
         { timestamp: new Date(), amount: amount }
     );
 
+    // store the new action list in localStorage
     localStorage.setItem('actions', JSON.stringify(actions));
 
 };
 
+// add new action
 eev.on('action-add', actionAdd);
 
+// calculate total
 eev.on('action-total', calculate);
-
-function actionController() {};
-
-export default actionController();
