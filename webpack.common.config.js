@@ -34,7 +34,7 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             "window.jQuery": 'jquery',
-            "windows.jQuery": 'jquery',
+            "windows.jQuery": 'jquery'
         })
     ],
     resolve: {
