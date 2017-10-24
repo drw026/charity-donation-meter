@@ -27,7 +27,3 @@ $settingsButton.on('click', function() {
     eev.emit('settings', { action: 'open' });
 
 });
-
-function actionCenter() {};
-
-export default actionCenter();

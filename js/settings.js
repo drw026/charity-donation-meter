@@ -1,6 +1,3 @@
-import $ from 'jquery';
-const eev = new (require('eev'))();
-
 // cache overlay
 const $settings = $('[data-js="settings"]');
 
@@ -38,8 +35,6 @@ function initialize() {
  * @param setup
  */
 function settings(data) {
-
-    console.log(localStorageIdentifier);
 
     if (data.action === 'open') {
 
