@@ -1,3 +1,6 @@
+/**
+ * calculate all amounts and return percentage
+ */
 function calculate() {
 
     // get actions from localstorage
@@ -14,10 +17,18 @@ function calculate() {
 
     }
 
+    /**
+     * calculate total from all actions
+     *
+     * @param data - all actions
+     * @returns {number} - total from all actions
+     */
     function calculateTotal(data) {
 
+        // var for saving the total
         let total = 0;
 
+        // traverse array and sum up all amounts from actions
         $.each(data, function totalSum(key, action) {
 
             total = total + parseInt(action.amount);
@@ -28,6 +39,13 @@ function calculate() {
 
     }
 
+    /**
+     * calculate percentage
+     *
+     * @param total - sum of all actions
+     * @param target - target amount
+     * @returns {number} - percentage
+     */
     function calculatePercentage(total, target) {
 
         return Math.round((total / target) * 100);
@@ -38,6 +56,10 @@ function calculate() {
 
 };
 
+/**
+ *
+ * @param amount
+ */
 function actionAdd(amount) {
 
     // get actions from localStorage
@@ -46,11 +68,14 @@ function actionAdd(amount) {
 
     // add new action
     actions.push(
-        { timestamp: new Date(), amount: amount }
+        { timestamp: Date.now(), amount: amount }
     );
 
     // store the new action list in localStorage
     localStorage.setItem('actions', JSON.stringify(actions));
+
+    // calculate
+    calculate();
 
 };
 
