@@ -7,6 +7,9 @@ const $inputTarget = $settings.find('.amountTarget');
 // cache button
 const $buttonTarget = $settings.find('.saveAmountTarget');
 
+// cache button
+const $buttonClose = $settings.find('.closeSettings');
+
 // create container
 let localStorageIdentifier = null;
 
@@ -56,6 +59,14 @@ $buttonTarget.on('click', function saveAmountTarget() {
 
     // set local storage
     localStorage.setItem('amountTarget', amountTarget);
+
+});
+
+// add event to button
+$buttonClose.on('click', function closeSettings() {
+
+    // emit close settings event
+    eev.emit('settings', { action: 'close' });
 
 });
 
