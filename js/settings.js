@@ -56,11 +56,22 @@ function settings(data) {
 
 }
 
-// add event to button
-$buttonTarget.on('click', function saveAmountTarget() {
+/**
+ * save the amount to localstorage
+ *
+ * @function saveAmountTarget
+ */
+function saveAmountTarget() {
 
     // get value from input
     const amountTarget = $inputTarget.val() || 0;
+
+    // only set valid numbers
+    if (amountTarget === 0) {
+
+        return;
+
+    }
 
     // set local storage
     localStorage.setItem('amountTarget', amountTarget);
@@ -68,7 +79,10 @@ $buttonTarget.on('click', function saveAmountTarget() {
     // enable close button
     $buttonClose.attr('disabled', false);
 
-});
+}
+
+// add event to button
+$buttonTarget.on('click', saveAmountTarget);
 
 // add event to button
 $buttonClose.on('click', function closeSettings() {
