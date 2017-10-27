@@ -24,7 +24,11 @@ function initialize() {
     // check if identifier is set
     if (!localStorageIdentifier) {
 
-        eev.emit('settings', { action: 'open' });
+        // open settings
+        settings({ action: 'open' })
+
+        // disable close button
+        $buttonClose.attr('disabled', true);
 
         return;
 
@@ -33,6 +37,7 @@ function initialize() {
 }
 
 /**
+ * open or close settings menu
  *
  * @function settings
  * @param setup
@@ -60,13 +65,16 @@ $buttonTarget.on('click', function saveAmountTarget() {
     // set local storage
     localStorage.setItem('amountTarget', amountTarget);
 
+    // enable close button
+    $buttonClose.attr('disabled', false);
+
 });
 
 // add event to button
 $buttonClose.on('click', function closeSettings() {
 
-    // emit close settings event
-    eev.emit('settings', { action: 'close' });
+    // close settings
+    settings({ action: 'close' })
 
 });
 
