@@ -34,6 +34,13 @@ function initialize() {
 
     }
 
+    setTimeout(function reInit() {
+
+        // recalculate
+        eev.emit('action-total');
+
+    }, 10)
+
 }
 
 /**
@@ -81,6 +88,9 @@ function saveAmountTarget() {
 
     // enable close button
     $buttonClose.attr('disabled', false);
+
+    // close settings
+    settings({ action: 'close' })
 
 }
 
