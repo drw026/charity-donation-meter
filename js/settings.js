@@ -76,6 +76,9 @@ function saveAmountTarget() {
     // set local storage
     localStorage.setItem('amountTarget', amountTarget);
 
+    // recalculate
+    eev.emit('action-total');
+
     // enable close button
     $buttonClose.attr('disabled', false);
 
