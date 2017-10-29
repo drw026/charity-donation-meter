@@ -7,6 +7,10 @@ const $amountButton = $actionCenter.find('.amount__button');
 
 const $settingsButton = $actionCenter.find('.settings__button');
 
+const $total = $actionCenter.find('.total');
+
+const $target = $actionCenter.find('.target');
+
 /**
  * @function addAmount
  */
@@ -38,5 +42,17 @@ $settingsButton.on('click', function() {
 
     // emit event to open settings
     eev.emit('settings', { action: 'open' });
+
+});
+
+eev.on('update-target', function updateTarget(target) {
+
+    $target.text('\u20ac' + target);
+
+});
+
+eev.on('update-total', function updateTotal(total) {
+
+    $total.text('\u20ac' + total);
 
 });

@@ -38,6 +38,7 @@ function initialize() {
 
         // recalculate
         eev.emit('action-total');
+        eev.emit('update-target', localStorageIdentifier);
 
     }, 10)
 
@@ -85,6 +86,8 @@ function saveAmountTarget() {
 
     // recalculate
     eev.emit('action-total');
+
+    eev.emit('update-target', amountTarget);
 
     // enable close button
     $buttonClose.attr('disabled', false);

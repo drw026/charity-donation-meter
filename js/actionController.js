@@ -9,6 +9,8 @@ function calculate() {
     // get amountTarget from localstorage
     const amountTarget = parseInt(localStorage.getItem('amountTarget')) || 0;
 
+    let returnObject = {};
+
     if (actions.length === 0 || amountTarget === 0) {
 
         console.log('geen actions');
@@ -52,7 +54,14 @@ function calculate() {
 
     }
 
-    eev.emit('update-meter', calculatePercentage(calculateTotal(actions), amountTarget));
+    returnObject = {
+        totalAmount: calculateTotal(actions),
+        percentage: calculatePercentage(calculateTotal(actions), amountTarget)
+    };
+
+    // send
+    eev.emit('update-meter', returnObject.percentage);
+    eev.emit('update-total', returnObject.totalAmount);
 
 };
 
