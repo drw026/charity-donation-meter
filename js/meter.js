@@ -6,7 +6,7 @@ function updateMeter(integer) {
 
     const percentage = integer <= 100 ? integer : 100;
 
-    $progress.css('height', percentage + '%');
+    $progress.css('width', percentage + '%');
 
 }
 
