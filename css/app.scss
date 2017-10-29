@@ -7,6 +7,12 @@ html, body {
     height: 100%;
 }
 
+body {
+    background-image: url('../images/test.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .overlay {
     background-color: rgba(0, 0, 0, 0.7);
     height: 100%;
@@ -49,6 +55,7 @@ html, body {
 }
 
 .meter {
+    background: rgba(255, 255, 255, 0.8);
     border: 3px solid #000;
     border-radius: 50px;
     display: inline-block;
