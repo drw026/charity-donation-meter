@@ -53,6 +53,9 @@ eev.on('update-target', function updateTarget(target) {
 
 eev.on('update-total', function updateTotal(total) {
 
-    $total.text('\u20ac' + total);
+    $total.text('\u20ac' + total.toLocaleString('nl', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }));
 
 });

@@ -8,8 +8,10 @@ html, body {
 }
 
 body {
+    background-image: url('../images/background.jpg');
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
 }
 
 .overlay {
@@ -74,6 +76,15 @@ body {
         position: absolute;
         transition: width 2s ease-in;
         width: 0;
+    }
+
+    &__amount {
+        color: #FFF;
+        display: inline-block;
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 10px;
+        text-shadow: 1px 1px 8px #000000;
     }
 }
 

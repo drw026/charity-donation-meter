@@ -13,8 +13,6 @@ function calculate() {
 
     if (actions.length === 0 || amountTarget === 0) {
 
-        console.log('geen actions');
-
         return;
 
     }
@@ -33,7 +31,7 @@ function calculate() {
         // traverse array and sum up all amounts from actions
         $.each(data, function totalSum(key, action) {
 
-            total = total + parseInt(action.amount);
+            total = total + parseFloat(action.amount);
 
         });
 
