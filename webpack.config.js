@@ -6,7 +6,7 @@ var extractCSS = new ExtractTextPlugin('style.css');
 var output = {
     path: path.resolve(__dirname, 'build'),
     publicPath: 'http://natal-barometer.andrewreasoa.com/build/',
-    filename: 'bundle.js'
+    filename: '[name].js'
 };
 
 module.exports = Object.assign(commonConfig, {
