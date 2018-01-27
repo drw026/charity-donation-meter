@@ -1,13 +1,7 @@
-// cache overlay
+// cache DOM elements
 const $settings = $('[data-js="settings"]');
-
-// cache input target
 const $inputTarget = $settings.find('.amountTarget');
-
-// cache button
 const $buttonTarget = $settings.find('.saveAmountTarget');
-
-// cache button
 const $buttonClose = $settings.find('.closeSettings');
 
 // create container

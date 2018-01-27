@@ -1,5 +1,7 @@
 /**
  * calculate all amounts and return percentage
+ *
+ * @function calculate
  */
 function calculate() {
 
@@ -9,8 +11,10 @@ function calculate() {
     // get amountTarget from localstorage
     const amountTarget = parseInt(localStorage.getItem('amountTarget')) || 0;
 
+    // create empty object to store return data
     let returnObject = {};
 
+    // abort calculations if there is no target amount or available actions
     if (actions.length === 0 || amountTarget === 0) {
 
         return;
@@ -28,7 +32,7 @@ function calculate() {
         // var for saving the total
         let total = 0;
 
-        // traverse array and sum up all amounts from actions
+        // iterate array and sum up all amounts from actions
         $.each(data, function totalSum(key, action) {
 
             total = total + parseFloat(action.amount);
@@ -52,6 +56,7 @@ function calculate() {
 
     }
 
+    // store all return data in object
     returnObject = {
         totalAmount: calculateTotal(actions),
         percentage: calculatePercentage(calculateTotal(actions), amountTarget)
@@ -64,6 +69,7 @@ function calculate() {
 };
 
 /**
+ * register actions, store them in localstorage and invoke recalculation
  *
  * @param amount
  */

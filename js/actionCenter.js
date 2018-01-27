@@ -1,17 +1,14 @@
-// cache overlay
+// cache DOM elements
 const $actionCenter = $('[data-js="actionCenter"]');
-
 const $amountInput = $actionCenter.find('.amount__input');
-
 const $amountButton = $actionCenter.find('.amount__button');
-
 const $settingsButton = $actionCenter.find('.settings__button');
-
 const $total = $actionCenter.find('.total');
-
 const $target = $actionCenter.find('.target');
 
 /**
+ * Get inserted amount and send to controller
+ *
  * @function addAmount
  */
 function addAmount() {
@@ -45,12 +42,14 @@ $settingsButton.on('click', function() {
 
 });
 
+// update target amount
 eev.on('update-target', function updateTarget(target) {
 
     $target.text('\u20ac' + target);
 
 });
 
+// update total amount
 eev.on('update-total', function updateTotal(total) {
 
     $total.text('\u20ac' + total.toLocaleString('nl', {
